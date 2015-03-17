@@ -1,6 +1,6 @@
 {
-  "name": "simple-store",
-  "version": "0.0.1",
+  "name": "js-store",
+  "version": "0.0.2",
   "description": "simple store creation utils",
   "main": "index.js",
   "scripts": {
