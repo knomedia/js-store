@@ -1,0 +1,22 @@
+{
+  "name": "simple-store",
+  "version": "0.0.1",
+  "description": "simple store creation utils",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/knomedia/simple-store"
+  },
+  "keywords": [
+    "store"
+  ],
+  "author": "knomedia@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/knomedia/simple-store/issues"
+  },
+  "homepage": "https://github.com/knomedia/simple-store"
+}
