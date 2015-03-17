@@ -1,4 +1,5 @@
 # js-store
+[![Build Status](https://travis-ci.org/knomedia/js-store.svg)](https://travis-ci.org/knomedia/js-store)
 
 > utilities for simple javascript stores
 
