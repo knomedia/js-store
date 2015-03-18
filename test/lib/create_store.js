@@ -26,6 +26,15 @@ describe('create_store', function(){
       st.setState({foo: 'qux'});
       assert.deepEqual(st.getState(), {foo: 'qux'});
     });
+    it('should call an optional callback', function(){
+      var st = createStore({foo: 'bar'});
+      var called = 0;
+      var cb = function(){
+        called += 1;
+      }
+      st.setState({foo: 'qux'}, cb);
+      assert.equal(called, 1);
+    })
   });
 
   describe('addChangeListener', function(){
