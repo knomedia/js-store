@@ -33,7 +33,7 @@ describe('create_collection_store', function(){
       assert.equal(found.value, 'bar');
     })
 
-    it('finds converts id param to an integer', function(){
+    it('converts id param to an integer', function(){
       var found = store.findById('3');
       assert.equal(found.value, 'baz');
     })
