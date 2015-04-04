@@ -1,6 +1,6 @@
 {
   "name": "js-store",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "simple store creation utils",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/knomedia/simple-store"
+    "url": "https://github.com/knomedia/js-store"
   },
   "keywords": [
     "store"
@@ -16,9 +16,9 @@
   "author": "knomedia@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/knomedia/simple-store/issues"
+    "url": "https://github.com/knomedia/js-store/issues"
   },
-  "homepage": "https://github.com/knomedia/simple-store",
+  "homepage": "https://github.com/knomedia/js-store",
   "devDependencies": {
     "mocha": "^2.2.1"
   },
