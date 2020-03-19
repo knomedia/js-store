@@ -45,6 +45,31 @@ TeamsStore.setState({teams: [
 TeamsStore.findById(2); // returns {id: 2, name: 'b'}
 ```
 
+Store collections have a few helper methods to make it easier to work with the collection:
+
+```javascript
+// where obj.id is a unique identifier, or obj is the value of an id
+// returns the index of the object, or -1 if not found
+TeamStore.findIndex(obj)
+```
+
+```javascript
+// adds an item to the collection
+TeamStore.add(item)
+```
+
+```javascript
+// replaces existing item (by team.id)
+// returns the updated item or undefined if the item.id doesn't match
+TeamStore.replace(item)
+```
+
+```javascript
+// replace the existing item that has the given id
+// returns the id if successfully destroy, or undefined
+TeamStore.destory(id)
+```
+
 Stores that sync with localStorage
 ```javascript
 var jsStore = require('js-store');

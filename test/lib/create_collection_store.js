@@ -77,6 +77,84 @@ describe('create_collection_store', function(){
     })
   })
 
+  describe('add', function() {
+    var els;
+    var store = createCollection('teams');
+
+    beforeEach(function() {
+      els = [
+        {id: 1, value: 'foo'},
+        {id: 2, value: 'bar'},
+        {id: 3, value: 'baz'}
+      ]
+      store.setState({teams: els});
+    })
+
+    it('adds a new object to the collection', function() {
+      var newObj = {id: 19, value: 'wat'}
+      store.add(newObj)
+      assert.deepEqual(store.findById(19), newObj)
+      assert.equal(store.getState().teams.length, 4)
+    });
+  })
+
+  describe('replace', function() {
+    var els;
+    var store = createCollection('teams');
+
+    beforeEach(function() {
+      els = [
+        {id: 1, value: 'foo'},
+        {id: 2, value: 'bar'},
+        {id: 3, value: 'baz'}
+      ]
+      store.setState({teams: els});
+    })
+
+    it('replaces existing object by id', function() {
+      var newObj = {id: 2, value: 'wat'}
+      store.replace(newObj)
+      assert.deepEqual(store.findById(2), newObj)
+      assert.equal(store.getState().teams.length, 3)
+      assert.deepEqual(store.getState().teams[1], newObj)
+    });
+
+    it('returns undefined when object id not found', function() {
+      var newObj = {id: 22, value: 'wat'}
+      assert.equal(store.replace(newObj), undefined)
+      assert.deepEqual(store.findById(22), undefined)
+      assert.equal(store.getState().teams.length, 3)
+    });
+  })
+
+  describe('destroy', function() {
+    var els;
+    var store = createCollection('teams');
+
+    beforeEach(function() {
+      els = [
+        {id: 1, value: 'foo'},
+        {id: 2, value: 'bar'},
+        {id: 3, value: 'baz'}
+      ]
+      store.setState({teams: els});
+    })
+
+    it('removes existing object by id', function() {
+      var newObj = {id: 2, value: 'wat'}
+      store.destroy(newObj.id)
+      assert.deepEqual(store.findById(2), undefined)
+      assert.equal(store.getState().teams.length, 2)
+    });
+
+    it('returns undefined when object id not found', function() {
+      var newObj = {id: 22, value: 'wat'}
+      assert.equal(store.destroy(newObj.id), undefined)
+      assert.deepEqual(store.findById(22), undefined)
+    });
+
+  })
+
   describe('mergeObject', function(){
     var els;
     var store = createCollection('teams');
