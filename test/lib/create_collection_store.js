@@ -47,7 +47,6 @@ describe('create_collection_store', function(){
       var found = store.findById('worst', true);
       assert.equal(found.value, 'bar');
     })
-
   })
 
   describe('findIndex', function(){
@@ -97,6 +96,35 @@ describe('create_collection_store', function(){
       assert.equal(store.getState().teams.length, 4)
     });
   })
+
+  describe('upsert', function() {
+    var els;
+    var store = createCollection('teams');
+
+    beforeEach(function() {
+      els = [
+        {id: 1, value: 'foo'},
+        {id: 2, value: 'bar'},
+        {id: 3, value: 'baz'}
+      ]
+      store.setState({teams: els});
+    })
+
+    it('replaces existing object by id', function() {
+      var newObj = {id: 2, value: 'wat'}
+      store.upsert(newObj)
+      assert.deepEqual(store.findById(2), newObj)
+      assert.equal(store.getState().teams.length, 3)
+      assert.deepEqual(store.getState().teams[1], newObj)
+    });
+
+    it('adds new object when object id not found in collection', function() {
+      var newObj = {id: 19, value: 'wat'}
+      store.upsert(newObj)
+      assert.deepEqual(store.findById(19), newObj)
+      assert.equal(store.getState().teams.length, 4)
+    });
+  });
 
   describe('replace', function() {
     var els;
@@ -152,7 +180,6 @@ describe('create_collection_store', function(){
       assert.equal(store.destroy(newObj.id), undefined)
       assert.deepEqual(store.findById(22), undefined)
     });
-
   })
 
   describe('mergeObject', function(){
@@ -193,7 +220,6 @@ describe('create_collection_store', function(){
       store.mergeObject(newObj);
       assert.deepEqual(store.findById('d', true), newObj);
     })
-
   })
 
 });

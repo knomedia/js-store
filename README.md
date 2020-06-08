@@ -48,6 +48,12 @@ TeamsStore.findById(2); // returns {id: 2, name: 'b'}
 Store collections have a few helper methods to make it easier to work with the collection:
 
 ```javascript
+// returns the object with an id of 2, or undefined
+// pass an optional second arg with a true to convert the first arg to an integer)
+TeamStore.findById(2)
+```
+
+```javascript
 // where obj.id is a unique identifier, or obj is the value of an id
 // returns the index of the object, or -1 if not found
 TeamStore.findIndex(obj)
@@ -62,6 +68,12 @@ TeamStore.add(item)
 // replaces existing item (by team.id)
 // returns the updated item or undefined if the item.id doesn't match
 TeamStore.replace(item)
+```
+
+```javascript
+// add or replaces existing item (by team.id)
+// returns the new item
+TeamStore.upsert(item)
 ```
 
 ```javascript
